@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GO/NO-GO Experiment</title>
+    
+    <!-- jsPsych CDN -->
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    
+    <!-- jsPsych plugin -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.2"></script>
+    
+    <!-- jsPsych stylesheet -->
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css">
+    
+    <!-- Your experiment script -->
+    <script src="experiment.js"></script>
+
+    <style>
+        /* Set the background color of the entire page to gray */
+        body {
+            background-color: gray;
+        }
+        .fixation {
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="jspsych-target"></div>
+</body>
+</html>
