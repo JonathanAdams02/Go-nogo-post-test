@@ -238,10 +238,7 @@ timeline.push({
         `;
     },
     choices: "NO_KEYS",
-    trial_duration: 1000,  // Show this screen for 5 seconds
-    on_finish: function() {
-        downloadData(); // Automatically download the data when the end screen appears
-    }
+    trial_duration: 1000  // Show this screen for 5 seconds
 });
 
 // Function to download data
