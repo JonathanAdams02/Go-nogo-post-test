@@ -53,6 +53,22 @@ for (let i = 0; i < 20; i++) {
 let conditions = [...allGoTrials, ...allNogoTrials].map(trial => ({ ...trial, is_practice: false })); // Ensure is_practice is false
 conditions = jsPsych.randomization.shuffle(conditions);
 
+// Function to check for and break up sequences of 4 identical words
+function preventConsecutiveWords(trials) {
+    for (let i = 0; i < trials.length - 3; i++) {
+        if (trials[i].Word === trials[i + 1].Word && trials[i].Word === trials[i + 2].Word && trials[i].Word === trials[i + 3].Word) {
+            // If 4 identical words are found in a row, swap the 4th one with a different word
+            let availableWords = ['ROOD', 'GEEL', 'BLAUW', 'GROEN'];
+            let currentWord = trials[i].Word;
+            let newWord = availableWords.filter(word => word !== currentWord)[Math.floor(Math.random() * 3)];
+            trials[i + 3].Word = newWord;
+        }
+    }
+    return trials;
+}
+
+// Apply the sequence fix
+conditions = preventConsecutiveWords(conditions);
 // Define instructions
 let instructions = {
     type: jsPsychHtmlKeyboardResponse,
